@@ -1,4 +1,7 @@
+import sys
 import json
+import pprint
+import schema
 
 class MigrateJson:
     def __init__(self, src_path, dest_path):
@@ -15,6 +18,11 @@ class MigrateJson:
         with open(self.dest_path, "w") as outfile:
             outfile.write(json_object)
             print("schema file updated")
+
+    def getSchema(self):
+        with open(self.src_path) as data_file:    
+            doc = json.load(data_file.read()) 
+            return createSchema(doc)
 
 
 migrate_object = MigrateJson('data/data_2.json', 'schema/schema_2.json')
