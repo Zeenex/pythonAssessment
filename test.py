@@ -1,7 +1,7 @@
 import unittest
 import pathlib as pl
 import json
-from jsonschema import validate
+# from jsonschema import validate
 
 class TestCaseBase(unittest.TestCase):
     def assertIsFile(self, path):
