@@ -14,6 +14,7 @@ class MigrateJson:
         json_object = json.dumps(data, indent=4)
         with open(self.dest_path, "w") as outfile:
             outfile.write(json_object)
+            print("schema file updated")
 
 
 migrate_object = MigrateJson('data/data_2.json', 'schema/schema_2.json')
