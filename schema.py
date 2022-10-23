@@ -1,21 +1,11 @@
-'''
-Givena file will create a schema for a JSON file. To see output in a formatted way, please visit this http://json.parser.online.fr/ 
-In the future I want to create a formatter. I'm aware of pprint but it'll print with double quotes, and that isn't very useful. So
-in the future I'll probably create a separate print function
-@Author: Colan Biemer
-'''
+
 
 import sys
 import json
 import pprint
 
 def createArraySchema(array_val):
-	'''
-	Arrays add an unfortuante amount of complexity to this. So we search for the type and the act accordingly.
-	the assumption is made that the array is all of the same type to avoid extra computation.
 
-	TODO; find a way to avoid duplicate code for the if statements finding which type it is
-	'''
 	## get type of array_val
 	arr_type = type(array_val)
 
@@ -30,9 +20,7 @@ def createArraySchema(array_val):
 		return "String"
 
 def createSchema(doc):
-	'''
-	Loop through keys and create a dctionary that will represent the schema for the document. Recursively call on dictiaonarys to go down object.
-	'''
+
 	## create object schema
 	schema = {}
 
@@ -65,9 +53,7 @@ def createSchema(doc):
 
 
 def getSchema(file_name):
-	'''
-	Open file and pass the json document to createSchema
-	'''
+
 	with open(file_name) as data_file:    
 		doc = json.loads(data_file.read()) 
 		return createSchema(doc)
